@@ -22,6 +22,19 @@ The Local Food Wastage Management System provides a complete solution for -
 - **Real-time Dashboard** - Streamlit-powered web interface for live data exploration.
 - **Data Quality Assurance** - Built-in data cleaning and validation processes.
 
+## 🎨 Interactive Dashboard Features
+
+1. **📊 Overview Metrics**
+   - Total active providers and receivers.
+   - Available food listings count.
+   - Total claims processed.
+   - Current waste percentage.
+
+2. **🔍 Search & Filter Interface**
+   - Filter by food type, location, expiry date.
+   - Search providers and receivers.
+   - Real-time data updates.
+
 ### Quick Glance
 
 <p align="center">
@@ -73,7 +86,6 @@ Organizations and individuals offering surplus food donations.
 | `City` | String | 
 | `Contact` | String | 
 
-
 ### 🏛️ Receivers Dataset (`Receivers.csv`)
 Organizations receiving and distributing surplus food to communities in need.
 
@@ -84,7 +96,6 @@ Organizations receiving and distributing surplus food to communities in need.
 | `Type` | String | 
 | `City` | String | 
 | `Contact` | String |
-
 
 ### 🍎 Food Listings Dataset (`Food Listings.csv`)
 Available surplus food items with detailed specifications.
@@ -100,7 +111,6 @@ Available surplus food items with detailed specifications.
 | `Location` | String |
 | `Food_Type` | String | 
 | `Meal_Type` | String |
-
 
 ### 📝 Claims Dataset (`Claims.csv`)
 Records of food items claimed and collected by receivers.
@@ -271,21 +281,6 @@ plt.show()
 <p align="center">
   <img src="Visualizations/1.png" alt="1" style="width:100%; max-width:500px; height:auto;"/>
 </p>
-
-## 🎨 Interactive Dashboard Features
-
-### Main Dashboard Components
-
-1. **📊 Overview Metrics**
-   - Total active providers and receivers.
-   - Available food listings count.
-   - Total claims processed.
-   - Current waste percentage.
-
-2. **🔍 Search & Filter Interface**
-   - Filter by food type, location, expiry date.
-   - Search providers and receivers.
-   - Real-time data updates.
 
 ## 📊 Key Performance Indicators (KPIs)
 
