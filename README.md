@@ -56,59 +56,62 @@ The system operates on four interconnected datasets that form the backbone of th
 ### 🏪 Providers Dataset (`Providers.csv`)
 Organizations and individuals offering surplus food donations.
 
-| Column | Data Type | Description | 
-|--------|-----------|-------------|
-| `Provider_ID` | String/Integer | Unique identifier for each provider | 
-| `Name` | String | Organization or individual name | 
-| `Location` | String | Physical address or area | 
-| `Contact` | String | Phone number or email | "+1-555-0123" |
-| `Type` | String | Category of provider | 
-| `Registration_Date` | Date | When provider joined system | 
+| Column | Data Type | 
+|--------|-----------|
+| `Provider_ID` | Integer | 
+| `Name` | String | 
+| `Type` | String | 
+| `Address` | String | 
+| `City` | String | 
+| `Contact` | String | 
+
 
 ### 🏛️ Receivers Dataset (`Receivers.csv`)
 Organizations receiving and distributing surplus food to communities in need.
 
-| Column | Data Type | Description | 
-|--------|-----------|-------------|
-| `Receiver_ID` | String/Integer | Unique identifier for each receiver | 
-| `Name` | String | Organization name | 
-| `Location` | String | Service area or address | 
-| `Contact` | String | Contact information |
-| `Capacity` | Integer | Maximum daily serving capacity | 
-| `Specialization` | String | Type of beneficiaries served | 
+| Column | Data Type | 
+|--------|-----------|
+| `Receiver_ID` | Integer | 
+| `Name` | String | 
+| `Type` | String | 
+| `City` | String | 
+| `Contact` | String |
+
 
 ### 🍎 Food Listings Dataset (`Food Listings.csv`)
 Available surplus food items with detailed specifications.
 
-| Column | Data Type | Description | 
-|--------|-----------|-------------|
-| `Listing_ID` | String/Integer | Unique identifier for each listing | 
-| `Provider_ID` | String/Integer | Reference to provider | 
-| `Food_Type` | String | Category of food item | 
-| `Quantity` | Float | Amount available (kg/units) | 
-| `Expiry_Date` | DateTime | When food expires | 
-| `Posted_Date` | DateTime | When listing was created | 
-| `Status` | String | Current listing status | 
+| Column | Data Type | 
+|--------|-----------|
+| `Food_ID` | Integer | 
+| `Food_Name` | String | 
+| `Quantity` | Float | 
+| `Expiry_Date` | DateTime | 
+| `Provider_ID` | Integer |
+| `Provider_Type` | String |
+| `Location` | String |
+| `Food_Type` | String | 
+| `Meal_Type` | String |
+
 
 ### 📝 Claims Dataset (`Claims.csv`)
 Records of food items claimed and collected by receivers.
 
-| Column | Data Type | Description |
-|--------|-----------|-------------|
-| `Claim_ID` | String/Integer | Unique identifier for each claim | 
-| `Listing_ID` | String/Integer | Reference to food listing | 
-| `Receiver_ID` | String/Integer | Reference to receiver | 
-| `Claim_Timestamp` | DateTime | When claim was made | 
-| `Collection_Status` | String | Whether food was collected | 
-| `Quantity_Claimed` | Float | Amount claimed |
+| Column | Data Type |
+|--------|-----------|
+| `Claim_ID` | Integer | 
+| `Food_ID` | Integer | 
+| `Receiver_ID` | String/Integer | 
+| `Status` | String |
+| `Timestamp` | DateTime |
 
 ## 🛠️ Installation & Setup
 
 ### Prerequisites
 
-- **Python 3.7+** - Ensure you have Python installed
-- **pip** - Python package manager
-- **Git** - For cloning the repository (optional)
+- **Python 3.7+** - Ensure you have Python installed.
+- **pip** - Python package manager.
+- **Git** - For cloning the repository.
 
 ### Environment Setup
 
@@ -308,6 +311,7 @@ plt.show()
 - **Demand Forecasting** - Predict receiver demand patterns.
 - **Cloud Deployment** - AWS/Google Cloud hosting.
 - **Multi-language Support** - Localization for global use.
+
 
 
 
