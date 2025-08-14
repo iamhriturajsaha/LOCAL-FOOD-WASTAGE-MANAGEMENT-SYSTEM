@@ -262,6 +262,16 @@ plt.grid(True, alpha=0.3)
 plt.show()
 ```
 
+<table>
+  <tr>
+    <td align="center"><img src="Visualizations/2.png" width="500"></td>
+    <td align="center"><img src="Visualizations/3.png" width="500"></td>
+  </tr>
+</table>
+<p align="center">
+  <img src="Visualizations/1.png" alt="1" style="width:100%; max-width:500px; height:auto;"/>
+</p>
+
 ## 🎨 Interactive Dashboard Features
 
 ### Main Dashboard Components
@@ -276,15 +286,6 @@ plt.show()
    - Filter by food type, location, expiry date.
    - Search providers and receivers.
    - Real-time data updates.
-
-3. **📈 Analytics Section**
-   - Interactive charts and graphs.
-   - Trend analysis over time.
-   - Performance metrics visualization.
-
-4. **📱 Mobile-Responsive Design**
-   - Optimized for tablets and smartphones.
-   - Touch-friendly interface elements.
 
 ## 📊 Key Performance Indicators (KPIs)
 
