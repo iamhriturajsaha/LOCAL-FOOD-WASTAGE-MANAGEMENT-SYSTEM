@@ -1,4 +1,4 @@
-# 🍽️ Local Food Wastage Management System
+# 🍽️Local Food Wastage Management System
 
 A comprehensive data-driven application designed to tackle food waste through efficient management and analysis of food donation and redistribution networks. This system bridges the gap between food providers (restaurants, supermarkets, cafeterias) and receivers (NGOs, food banks, shelters), enabling communities to reduce food waste while addressing food insecurity.
 
@@ -24,6 +24,14 @@ The Local Food Wastage Management System provides a complete solution for -
 
 ### Quick Glance
 
+<p align="center">
+  <img src="Streamlit Images/1.png" alt="Streamlit Dashboard 1" width="1000"/><br>
+  <img src="Streamlit Images/2.png" alt="Streamlit Dashboard 2" width="1000"/><br>
+  <img src="Streamlit Images/3.png" alt="Streamlit Dashboard 3" width="1000"/><br>
+  <img src="Streamlit Images/4.png" alt="Streamlit Dashboard 4" width="1000"/><br>
+  <img src="Streamlit Images/5.png" alt="Streamlit Dashboard 5" width="1000"/><br>
+  <img src="Streamlit Images/6.png" alt="Streamlit Dashboard 6" width="1000"/>
+</p>
 
 ## 📊 System Architecture
 
@@ -101,7 +109,7 @@ Records of food items claimed and collected by receivers.
 |--------|-----------|
 | `Claim_ID` | Integer | 
 | `Food_ID` | Integer | 
-| `Receiver_ID` | String/Integer | 
+| `Receiver_ID` | Integer | 
 | `Status` | String |
 | `Timestamp` | DateTime |
 
@@ -145,7 +153,6 @@ streamlit run app.py
 ```python
 import pandas as pd
 from sqlalchemy import create_engine
-
 # Load datasets
 providers_df = pd.read_csv('Providers.csv')
 receivers_df = pd.read_csv('Receivers.csv')
@@ -160,13 +167,11 @@ food_listings_df['Expiry_Date'] = pd.to_datetime(
     food_listings_df['Expiry_Date'], 
     errors='coerce'
 )
-
 # Remove duplicates
 for df_name, df in [('providers', providers_df), ('receivers', receivers_df)]:
     duplicates = df.duplicated().sum()
     print(f"{df_name}: {duplicates} duplicates found")
     df.drop_duplicates(inplace=True)
-
 # Validate data integrity
 assert not food_listings_df['Listing_ID'].duplicated().any(), "Duplicate Listing IDs found"
 ```
@@ -175,7 +180,6 @@ assert not food_listings_df['Listing_ID'].duplicated().any(), "Duplicate Listing
 ```python
 # Create SQLite database
 engine = create_engine("sqlite:///Food Wastage.db", echo=False)
-
 # Store datasets as tables
 providers_df.to_sql('providers', con=engine, if_exists='replace', index=False)
 receivers_df.to_sql('receivers', con=engine, if_exists='replace', index=False)
@@ -248,7 +252,6 @@ plt.show()
 ```python
 claims_df['Claim_Date'] = pd.to_datetime(claims_df['Claim_Timestamp']).dt.date
 daily_claims = claims_df.groupby('Claim_Date').size()
-
 plt.figure(figsize=(12, 6))
 plt.plot(daily_claims.index, daily_claims.values, marker='o')
 plt.title('Daily Food Claims Trend')
@@ -287,13 +290,13 @@ plt.show()
 
 ### System Efficiency Metrics
 
-| Metric | Description | Formula | Target |
-|--------|-------------|---------|---------|
-| **Food Recovery Rate** | Percentage of listed food successfully claimed | (Claimed Items / Total Listings) × 100 | >80% |
-| **Provider Retention** | Active providers over time | (Active Providers Month N / Month N-1) × 100 | >95% |
-| **Waste Reduction** | Percentage of food saved from wastage | (Collected Quantity / Total Listed) × 100 | >75% |
-| **Response Time** | Average time from listing to claim | AVG(Claim_Time - Posted_Time) | <4 hours |
-| **Collection Success** | Successfully collected vs claimed | (Collected / Claimed) × 100 | >90% |
+| Metric | Description | Formula | 
+|--------|-------------|---------|
+| **Food Recovery Rate** | Percentage of listed food successfully claimed | (Claimed Items / Total Listings) × 100 | 
+| **Provider Retention** | Active providers over time | (Active Providers Month N / Month N-1) × 100 | 
+| **Waste Reduction** | Percentage of food saved from wastage | (Collected Quantity / Total Listed) × 100 |
+| **Response Time** | Average time from listing to claim | AVG(Claim_Time - Posted_Time) | 
+| **Collection Success** | Successfully collected vs claimed | (Collected / Claimed) × 100 |
 
 ### Business Intelligence Insights
 
@@ -311,9 +314,3 @@ plt.show()
 - **Demand Forecasting** - Predict receiver demand patterns.
 - **Cloud Deployment** - AWS/Google Cloud hosting.
 - **Multi-language Support** - Localization for global use.
-
-
-
-
-
-
